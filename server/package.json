@@ -6,7 +6,8 @@
   "scripts": {
     "test": "test",
     "dev": "tsc && node dist/index.js",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "tsc && node dist/server.js"
   },
   "author": "scott",
   "license": "ISC",

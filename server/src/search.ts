@@ -19,6 +19,7 @@ const filters = {
 }
 
 export async function search(filters) {
+  console.log('starting search');
   // const cars = await carmax(filters);
   // const cars = await cars_com(filters);
   // const cars = await carvana(filters);

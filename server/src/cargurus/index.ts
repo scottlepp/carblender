@@ -17,6 +17,7 @@ const searchUrl = `https://www.cargurus.com/Cars/inventorylisting/viewDetailsFil
 const searchSuffix = '';
 
 const search = async (filters) => {
+  console.log('launching browser');
   const browser = await puppeteer.launch(
     {
       headless: false  //change to true in prod!
@@ -52,6 +53,7 @@ const search = async (filters) => {
   // context.clearPermissionOverrides();
   // context.overridePermissions(urlObj.origin, ['geolocation']);
 
+  console.log('openeing new page');
   let page = await browser.newPage()
 
   page.on('console', msg => {
@@ -109,9 +111,13 @@ await page.evaluateOnNewDocument(() => {
   });
 });
 
+console.log('opening url ' + url);
+
   await page.goto(url, {
     waitUntil: 'networkidle2',
   })
+
+console.log('opened url ' + url);
 
   if (filters.make) {
 
@@ -157,6 +163,7 @@ await page.evaluateOnNewDocument(() => {
   }
 
 
+  console.log('getting cars');
 
   // get results
   const cars = await page.evaluate(() => {
@@ -186,6 +193,8 @@ await page.evaluateOnNewDocument(() => {
       return {title: cleanTitle, thumb}
     })//.filter(car => car.thumb !== null)
   });
+
+  console.log('got cars ' + cars.length);
 
   browser.close();
 

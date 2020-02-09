@@ -18,12 +18,18 @@ const searchSuffix = '';
 
 const search = async (filters) => {
   console.log('launching browser');
-  const browser = await puppeteer.launch(
-    {
-      headless: true,  //change to true in prod!
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
-    }
-  )
+  let browser;
+  try {
+    browser = await puppeteer.launch(
+      {
+        headless: true,  //change to true in prod!
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+      }
+    )
+  } catch (e) {
+    console.log('failed to launch', e);
+    return [];
+  }
 
   let url = searchUrl;
   let sep = '&';

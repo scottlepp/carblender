@@ -20,7 +20,7 @@ const search = async (filters) => {
   console.log('launching browser');
   const browser = await puppeteer.launch(
     {
-      headless: false  //change to true in prod!
+      headless: true  //change to true in prod!
     }
   )
 

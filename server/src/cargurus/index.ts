@@ -187,7 +187,7 @@ await page.evaluateOnNewDocument(() => {
     })//.filter(car => car.thumb !== null)
   });
 
-  // browser.close();
+  browser.close();
 
   return cars;
 }

@@ -29,4 +29,6 @@ export async function search(filters) {
   // const cars = await boattrader({});
   // const cars = await facebook(filters);
   console.log(cars);
+
+  return cars;
 }

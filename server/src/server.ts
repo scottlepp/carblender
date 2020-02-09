@@ -43,4 +43,4 @@ app.get('/api', (req, res) => {
   }).catch(() => 'search failed');
 });
 
-app.listen(3001, () => console.log(`app listening on port ${3001}!`))
+app.listen(80, () => console.log(`app listening on port ${80}!`))
